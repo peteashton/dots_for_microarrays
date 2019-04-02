@@ -4,16 +4,14 @@
 import os
 import subprocess
 import random
-import StringIO
 import bokeh.plotting as bp
 import bokeh.models as bm
 import pandas as pd
 import numpy as np
 from PIL import Image
-from dots_analysis import run_pca, run_stats, get_fold_changes, get_clusters
-from dots_arrays import Experiment
+from dots_backend.dots_analysis import run_pca, run_stats, get_fold_changes, get_clusters
+from dots_backend.dots_arrays import Experiment
 from collections import OrderedDict
-from bokeh.charts import Line
 from palettable.colorbrewer.diverging import RdYlGn_11
 
 ## Functions ##

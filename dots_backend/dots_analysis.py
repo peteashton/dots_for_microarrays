@@ -5,7 +5,7 @@ import warnings
 import pandas as pd
 import numpy as np
 import scipy.cluster.hierarchy as hac
-from dots_arrays import Experiment
+from dots_backend.dots_arrays import Experiment
 from sklearn.decomposition import PCA
 from itertools import combinations
 from scipy.stats import ttest_ind, f_oneway
