@@ -70,9 +70,9 @@ def create_standard_plot(h=600, w=600, title='', x_range=None, tools='previewsav
 	'''
 
 	if x_range is not None:
-		plot = bp.figure(tools=tools, background_fill='#E5E5E5', x_range=x_range, title=title, plot_height=h, plot_width=w)
+		plot = bp.figure(tools=tools, background_fill_color='#E5E5E5', x_range=x_range, title=title, plot_height=h, plot_width=w)
 	else:
-		plot = bp.figure(tools=tools, background_fill='#E5E5E5', title=title, plot_height=h, plot_width=w)
+		plot = bp.figure(tools=tools, background_fill_color='#E5E5E5', title=title, plot_height=h, plot_width=w)
 
 	plot.xgrid.grid_line_color = 'white'
 	plot.ygrid.grid_line_color = 'white'
@@ -168,10 +168,10 @@ def do_boxplot(experiment, show=False, image=False, html_file='boxplot.html'):
 
 	df_copy = experiment.df.copy()
 	exp_shape = experiment.get_exp_values().shape
-	num_rows = 250000/exp_shape[1]
+	num_rows = int(250000/exp_shape[1])
 
 	if num_rows < exp_shape[0]:
-		experiment.df = experiment.df.ix[random.sample(experiment.df.index, num_rows)]
+		experiment.df = experiment.df.ix[random.sample(list(experiment.df.index), num_rows)]
 		groups = experiment.get_exp_values().unstack().groupby(level=0)
 
 	## Add all of the outliers to the lists.
